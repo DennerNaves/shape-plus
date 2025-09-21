@@ -25,7 +25,7 @@ export function HomeCard({ className, navigate, icon, title, description, button
         <CardDescription className="text-base">{description}</CardDescription>
       </CardHeader>
       <CardContent className="text-center">
-        <Button className="w-full" size="lg">
+        <Button className="w-full cursor-pointer" size="lg">
           {buttonName}
         </Button>
       </CardContent>
