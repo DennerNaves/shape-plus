@@ -2,7 +2,8 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Apple, Calendar, Dumbbell, TrendingUp } from "lucide-react"
+import { Apple, Calendar, Dumbbell, TrendingUp,  BicepsFlexed } from "lucide-react"
+import { HomeCard } from '@/components/components/home-card';
 
 interface HomeScreenProps {
   onNavigate: (section: "training" | "nutrition") => void
@@ -38,42 +39,30 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
         </div>
 
         {/* Main Navigation Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
-          <Card
-            className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105 border-2 hover:border-primary/50"
-            onClick={() => onNavigate("training")}
-          >
-            <CardHeader className="text-center pb-4">
-              <div className="mx-auto p-4 bg-primary/10 rounded-full w-fit mb-4">
-                <Dumbbell className="h-12 w-12 text-primary" />
-              </div>
-              <CardTitle className="text-2xl">Treino</CardTitle>
-              <CardDescription className="text-base">Crie e gerencie suas rotinas de exercícios</CardDescription>
-            </CardHeader>
-            <CardContent className="text-center">
-              <Button className="w-full" size="lg">
-                Acessar Treinos
-              </Button>
-            </CardContent>
-          </Card>
+        <div className="grid md:grid-cols-3 gap-8 min-w-[400px] mx-auto mb-12">
+          <HomeCard
+            navigate={() => onNavigate("training")}
+            icon={<Dumbbell className="h-12 w-12 text-primary" />}
+            title={"Treinos"}
+            description={"Crie e gerencie suas rotinas de exercícios"}
+            buttonName={"Acessar treinos"}
+          />
 
-          <Card
-            className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105 border-2 hover:border-primary/50"
-            onClick={() => onNavigate("nutrition")}
-          >
-            <CardHeader className="text-center pb-4">
-              <div className="mx-auto p-4 bg-accent/10 rounded-full w-fit mb-4">
-                <Apple className="h-12 w-12 text-accent" />
-              </div>
-              <CardTitle className="text-2xl">Alimentação</CardTitle>
-              <CardDescription className="text-base">Planeje suas refeições e monitore nutrição</CardDescription>
-            </CardHeader>
-            <CardContent className="text-center">
-              <Button variant="outline" className="w-full bg-transparent" size="lg">
-                Acessar Alimentação
-              </Button>
-            </CardContent>
-          </Card>
+          <HomeCard
+            navigate={() => onNavigate("nutrition")}
+            icon={<Apple className="h-12 w-12 text-accent" />}
+            title={"Alimentação"}
+            description={"Planeje suas refeições e monitore nutrição"}
+            buttonName={"Acessar alimentação"}
+          />
+
+          <HomeCard
+            navigate={() => onNavigate("body")}
+            icon={<BicepsFlexed className="h-12 w-12 text-accent" />}
+            title={"Corpo"}
+            description={"Acompanhe a evolução do seu shape"}
+            buttonName={"Acessar acompanhamento"}
+          />
         </div>
 
         {/* Stats Cards */}
