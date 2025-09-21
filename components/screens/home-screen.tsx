@@ -6,7 +6,7 @@ import { Apple, Calendar, Dumbbell, TrendingUp,  BicepsFlexed } from "lucide-rea
 import { HomeCard } from '@/components/components/home-card';
 
 interface HomeScreenProps {
-  onNavigate: (section: "training" | "nutrition") => void
+  onNavigate: (section: "training" | "nutrition" | "body") => void
 }
 
 export function HomeScreen({ onNavigate }: HomeScreenProps) {
@@ -21,7 +21,7 @@ export function HomeScreen({ onNavigate }: HomeScreenProps) {
                 <Dumbbell className="h-6 w-6 text-primary-foreground" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-foreground">GymApp</h1>
+                <h1 className="text-2xl font-bold text-foreground">Shape+</h1>
                 <p className="text-sm text-muted-foreground">Seu companheiro de treino</p>
               </div>
             </div>
